@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mouhammadou DIA — Data Scientist & Data Engineer</title>
+  <title>Mouhammadou DIA — Data Scientist</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- NAV -->
   <nav>
     <span class="nav-logo">MD</span>
     <ul>
       <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -30,8 +30,8 @@
         <span id="typed-text"></span><span class="cursor">|</span>
       </h2>
       <p class="hero-desc">
-        I turn raw data into insight and production-grade systems.<br/>
-        Based in Senegal, working globally.
+        Final-year Statistics student at ENSAE Dakar, Data Science track.<br/>
+        I build models, dashboards, and data systems that work in the real world.
       </p>
       <div class="hero-cta">
         <a href="#projects" class="btn btn-primary">View Projects</a>
@@ -41,15 +41,13 @@
     </div>
     <div class="hero-art">
       <div class="code-block">
-        <span class="line"><span class="kw">import</span> pandas <span class="kw">as</span> pd</span>
-        <span class="line"><span class="kw">from</span> sklearn.pipeline <span class="kw">import</span> Pipeline</span>
-        <span class="line"><span class="kw">from</span> transformers <span class="kw">import</span> AutoModel</span>
+        <span class="line"><span class="kw">from</span> sklearn.ensemble <span class="kw">import</span> GradientBoostingRegressor</span>
+        <span class="line"><span class="kw">from</span> chromadb <span class="kw">import</span> Client</span>
+        <span class="line"><span class="kw">import</span> shiny <span class="kw">as</span> sh</span>
         <span class="line"></span>
-        <span class="line"><span class="fn">def</span> <span class="fn-name">build_pipeline</span>(data):</span>
-        <span class="line">    df = pd.<span class="fn-name">read_parquet</span>(data)</span>
-        <span class="line">    model = AutoModel.<span class="fn-name">from_pretrained</span>(</span>
-        <span class="line">        <span class="str">"wav2vec2-wolof"</span></span>
-        <span class="line">    )</span>
+        <span class="line"><span class="fn">def</span> <span class="fn-name">predict_emissions</span>(df):</span>
+        <span class="line">    model = GradientBoostingRegressor()</span>
+        <span class="line">    model.<span class="fn-name">fit</span>(df.drop(<span class="str">"CO2"</span>, axis=<span class="num">1</span>), df[<span class="str">"CO2"</span>])</span>
         <span class="line">    <span class="kw">return</span> model</span>
       </div>
     </div>
@@ -58,30 +56,67 @@
   <!-- ABOUT -->
   <section id="about">
     <div class="container">
-      <h2 class="section-title">About me</h2>
+      <h2 class="section-title">About</h2>
       <div class="about-grid">
         <div class="about-text">
           <p>
-            I'm a Data Scientist and Data Engineer with a focus on NLP, ML pipelines, and geospatial analysis.
-            I've worked on everything from fine-tuning speech models for low-resource African languages to building
-            end-to-end RAG systems on millions of records.
+            I'm a final-year student in Applied Mathematics and Data Analysis at ENSAE Dakar,
+            specializing in the Data Science track. My work spans statistical analysis, machine
+            learning, NLP pipelines, and interactive dashboards.
           </p>
           <p>
-            I care about code that is clean, systems that are observable, and results that are reproducible.
+            I've worked as a Statistical Analyst Intern at ANSD (National Statistics Agency of Senegal),
+            contributed to World Bank surveys, and led student consulting projects as President of
+            the Junior Enterprise ENSAE.
           </p>
           <ul class="about-facts">
-            <li>📍 Dakar, Senegal</li>
-            <li>🎓 Data Science & AI</li>
-            <li>🌐 French · English · Wolof</li>
-            <li>💡 Open to DS / DE roles</li>
+            <li>Dakar, Senegal</li>
+            <li>ENSAE Dakar — Applied Mathematics &amp; Data Analysis</li>
+            <li>French · English · Wolof</li>
+            <li>Open to Data Science / Data Engineering roles</li>
           </ul>
         </div>
         <div class="about-stats">
-          <div class="stat"><span class="stat-num">5+</span><span class="stat-label">Projects shipped</span></div>
-          <div class="stat"><span class="stat-num">56k+</span><span class="stat-label">Reddit convos indexed</span></div>
+          <div class="stat"><span class="stat-num">4+</span><span class="stat-label">Projects shipped</span></div>
+          <div class="stat"><span class="stat-num">2</span><span class="stat-label">Internships / field work</span></div>
           <div class="stat"><span class="stat-num">3</span><span class="stat-label">Languages spoken</span></div>
-          <div class="stat"><span class="stat-num">1</span><span class="stat-label">Low-resource ASR built</span></div>
+          <div class="stat"><span class="stat-num">2025</span><span class="stat-label">Graduating year</span></div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="container">
+      <h2 class="section-title">Experience</h2>
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-date">Aug – Oct 2025</div>
+          <div class="timeline-content">
+            <h3>Statistical Analyst Intern</h3>
+            <span class="company">ANSD — Partnership Management Unit</span>
+            <ul>
+              <li>Built an interactive RShiny dashboard for the BCEAO Survey on Financial Services demand in Senegal</li>
+              <li>Supervised the pilot field survey</li>
+              <li>Data processing and report writing for the DGPSN National Unique Registry update</li>
+              <li>Survey questionnaire revision for 3FPT vocational training impact evaluation</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">Mar – May 2025</div>
+          <div class="timeline-content">
+            <h3>Survey Coordinator</h3>
+            <span class="company">World Bank — ANSD / ENSAE</span>
+            <ul>
+              <li>Coordinated the full survey process on statistical data user satisfaction</li>
+            </ul>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -92,40 +127,31 @@
       <h2 class="section-title">Skills</h2>
       <div class="skills-grid">
         <div class="skill-group">
-          <h3>Languages</h3>
+          <h3>AI &amp; Machine Learning</h3>
           <div class="tags">
-            <span>Python</span><span>SQL</span><span>R</span><span>Bash</span>
+            <span>Python</span><span>PyTorch</span><span>Scikit-Learn</span>
+            <span>NLP</span><span>RAG</span><span>ChromaDB</span>
+            <span>FastAPI</span><span>Docker</span>
           </div>
         </div>
         <div class="skill-group">
-          <h3>ML / AI</h3>
+          <h3>Data &amp; BI</h3>
           <div class="tags">
-            <span>PyTorch</span><span>scikit-learn</span><span>HuggingFace</span>
-            <span>FAISS</span><span>spaCy</span><span>wav2vec2</span>
+            <span>R</span><span>RShiny</span><span>Power BI</span><span>MySQL</span>
+            <span>Dash (Plotly)</span><span>Stata</span><span>Django</span><span>QGIS</span>
           </div>
         </div>
         <div class="skill-group">
-          <h3>Data Engineering</h3>
+          <h3>Data Collection &amp; Surveys</h3>
           <div class="tags">
-            <span>Apache Spark</span><span>Airflow</span><span>Pandas</span><span>NumPy</span><span>dbt</span>
+            <span>ODK</span><span>Survey Solutions</span>
           </div>
         </div>
         <div class="skill-group">
-          <h3>Backend & Infra</h3>
+          <h3>Other Tools</h3>
           <div class="tags">
-            <span>FastAPI</span><span>Docker</span><span>PostgreSQL</span><span>PostGIS</span><span>Git</span>
-          </div>
-        </div>
-        <div class="skill-group">
-          <h3>Viz & BI</h3>
-          <div class="tags">
-            <span>Plotly</span><span>Dash</span><span>Streamlit</span><span>Matplotlib</span><span>Seaborn</span>
-          </div>
-        </div>
-        <div class="skill-group">
-          <h3>Cloud & Tools</h3>
-          <div class="tags">
-            <span>Linux</span><span>GitHub Actions</span><span>VS Code</span><span>Jupyter</span>
+            <span>Git / GitHub</span><span>LaTeX</span><span>Microsoft Project</span>
+            <span>NestJS</span><span>TypeScript</span>
           </div>
         </div>
       </div>
@@ -135,102 +161,58 @@
   <!-- PROJECTS -->
   <section id="projects">
     <div class="container">
-      <h2 class="section-title">Featured Projects</h2>
+      <h2 class="section-title">Projects</h2>
       <div class="projects-grid">
 
         <div class="card">
           <div class="card-header">
-            <span class="card-icon">🤖</span>
-            <div class="card-links">
-              <a href="https://github.com/Mouhammadou-DIA/Chatbot_RAG_Reddit_chat" target="_blank" title="GitHub">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.165c-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.835 2.809 1.305 3.495.998.108-.776.418-1.305.762-1.605-2.665-.3-5.467-1.332-5.467-5.93 0-1.31.468-2.38 1.235-3.22-.123-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23A11.5 11.5 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.12 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.807 5.625-5.48 5.92.43.372.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 21.796 24 17.298 24 12c0-6.63-5.37-12-12-12z"/></svg>
-              </a>
-            </div>
+            <h3>RAG Chatbot — NLP</h3>
+            <a href="https://github.com/Mouhammadou-DIA/Chatbot_RAG_Reddit_chat" target="_blank" class="card-link" title="GitHub">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.165c-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.835 2.809 1.305 3.495.998.108-.776.418-1.305.762-1.605-2.665-.3-5.467-1.332-5.467-5.93 0-1.31.468-2.38 1.235-3.22-.123-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23A11.5 11.5 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.12 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.807 5.625-5.48 5.92.43.372.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 21.796 24 17.298 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
           </div>
-          <h3>Reddit RAG Chatbot</h3>
-          <p>RAG pipeline built on 56,000+ Reddit conversations. Supports 60+ languages, integrates with Ollama, OpenAI, and Anthropic. Full REST API + Dash UI.</p>
+          <p>RAG pipeline on Reddit data — Embedding to ChromaDB to LLM (Ollama, OpenAI, Anthropic, Groq). FastAPI + HTML/JS frontend, Docker deployment, multilingual embeddings.</p>
           <div class="card-tags">
-            <span>Python</span><span>FAISS</span><span>LLM</span><span>Docker</span><span>Dash</span>
+            <span>Python</span><span>ChromaDB</span><span>FastAPI</span><span>Docker</span><span>NLP</span>
           </div>
         </div>
 
         <div class="card">
           <div class="card-header">
-            <span class="card-icon">🏙️</span>
-            <div class="card-links">
-              <a href="https://github.com/Mouhammadou-DIA/CO2-Emission-in-Seattle-REGO3" target="_blank" title="GitHub">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.165c-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.835 2.809 1.305 3.495.998.108-.776.418-1.305.762-1.605-2.665-.3-5.467-1.332-5.467-5.93 0-1.31.468-2.38 1.235-3.22-.123-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23A11.5 11.5 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.12 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.807 5.625-5.48 5.92.43.372.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 21.796 24 17.298 24 12c0-6.63-5.37-12-12-12z"/></svg>
-              </a>
-            </div>
+            <h3>CO2 &amp; Energy Forecasting</h3>
+            <a href="https://github.com/Mouhammadou-DIA/CO2-Emission-in-Seattle-REGO3" target="_blank" class="card-link" title="GitHub">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.165c-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.835 2.809 1.305 3.495.998.108-.776.418-1.305.762-1.605-2.665-.3-5.467-1.332-5.467-5.93 0-1.31.468-2.38 1.235-3.22-.123-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23A11.5 11.5 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.12 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.807 5.625-5.48 5.92.43.372.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 21.796 24 17.298 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
           </div>
-          <h3>CO2 Seattle Dashboard</h3>
-          <p>ML model predicting CO2 emissions and energy performance of Seattle buildings. Interactive dashboard with geospatial visualizations.</p>
+          <p>Gradient Boosting models for GHG emissions prediction on Seattle buildings. Dash dashboard with a What-If renovation simulator and 2050 climate projection.</p>
           <div class="card-tags">
-            <span>scikit-learn</span><span>Plotly</span><span>Python</span><span>GIS</span>
+            <span>Python</span><span>Scikit-Learn</span><span>Gradient Boosting</span><span>Dash</span>
           </div>
         </div>
 
         <div class="card">
           <div class="card-header">
-            <span class="card-icon">🎙️</span>
-            <div class="card-links">
-              <a href="https://github.com/Mouhammadou-DIA/wolof-asr" target="_blank" title="GitHub">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.165c-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.835 2.809 1.305 3.495.998.108-.776.418-1.305.762-1.605-2.665-.3-5.467-1.332-5.467-5.93 0-1.31.468-2.38 1.235-3.22-.123-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23A11.5 11.5 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.12 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.807 5.625-5.48 5.92.43.372.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 21.796 24 17.298 24 12c0-6.63-5.37-12-12-12z"/></svg>
-              </a>
-            </div>
+            <h3>BCEAO Dashboard</h3>
+            <a href="https://github.com/Mouhammadou-DIA/bceao-dashboard" target="_blank" class="card-link" title="GitHub">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.165c-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.835 2.809 1.305 3.495.998.108-.776.418-1.305.762-1.605-2.665-.3-5.467-1.332-5.467-5.93 0-1.31.468-2.38 1.235-3.22-.123-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23A11.5 11.5 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.12 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.807 5.625-5.48 5.92.43.372.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 21.796 24 17.298 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
           </div>
-          <h3>Wolof ASR</h3>
-          <p>Automatic speech recognition for Wolof — a low-resource West African language. Fine-tuned wav2vec2-XLS-R-300M on custom audio datasets.</p>
+          <p>Interactive RShiny dashboard for the BCEAO–ANSD Survey on Demand for Financial Services in Senegal. Built during internship at ANSD.</p>
           <div class="card-tags">
-            <span>PyTorch</span><span>wav2vec2</span><span>HuggingFace</span><span>NLP</span>
+            <span>R</span><span>RShiny</span><span>Statistics</span><span>Data Viz</span>
           </div>
         </div>
 
         <div class="card">
           <div class="card-header">
-            <span class="card-icon">📝</span>
-            <div class="card-links">
-              <a href="https://github.com/Mouhammadou-DIA/Projet-NLP" target="_blank" title="GitHub">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.165c-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.835 2.809 1.305 3.495.998.108-.776.418-1.305.762-1.605-2.665-.3-5.467-1.332-5.467-5.93 0-1.31.468-2.38 1.235-3.22-.123-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23A11.5 11.5 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.12 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.807 5.625-5.48 5.92.43.372.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 21.796 24 17.298 24 12c0-6.63-5.37-12-12-12z"/></svg>
-              </a>
-            </div>
+            <h3>SEO Tools API</h3>
+            <a href="https://github.com/Mouhammadou-DIA/seo-tools-api" target="_blank" class="card-link" title="GitHub">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.165c-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.835 2.809 1.305 3.495.998.108-.776.418-1.305.762-1.605-2.665-.3-5.467-1.332-5.467-5.93 0-1.31.468-2.38 1.235-3.22-.123-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23A11.5 11.5 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.12 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.807 5.625-5.48 5.92.43.372.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 21.796 24 17.298 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
           </div>
-          <h3>Projet NLP</h3>
-          <p>Production-ready NLP API with Docker containerization, REST endpoints, full test suite and frontend interface.</p>
+          <p>SEO REST suite in NestJS/TypeScript — rank checker, traffic analyzer, audit, backlinks. Semrush-style API built with web scraping.</p>
           <div class="card-tags">
-            <span>FastAPI</span><span>spaCy</span><span>Docker</span><span>React</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-header">
-            <span class="card-icon">🌿</span>
-            <div class="card-links">
-              <a href="https://github.com/Mouhammadou-DIA/GreenCorp" target="_blank" title="GitHub">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.165c-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.835 2.809 1.305 3.495.998.108-.776.418-1.305.762-1.605-2.665-.3-5.467-1.332-5.467-5.93 0-1.31.468-2.38 1.235-3.22-.123-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23A11.5 11.5 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.12 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.807 5.625-5.48 5.92.43.372.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 21.796 24 17.298 24 12c0-6.63-5.37-12-12-12z"/></svg>
-              </a>
-            </div>
-          </div>
-          <h3>GreenCorp</h3>
-          <p>Environmental data platform with geospatial analysis, backend API and interactive maps for environmental monitoring.</p>
-          <div class="card-tags">
-            <span>Python</span><span>PostGIS</span><span>Django</span><span>React</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-header">
-            <span class="card-icon">⚡</span>
-            <div class="card-links">
-              <a href="https://github.com/Mouhammadou-DIA" target="_blank" title="GitHub">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.165c-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.835 2.809 1.305 3.495.998.108-.776.418-1.305.762-1.605-2.665-.3-5.467-1.332-5.467-5.93 0-1.31.468-2.38 1.235-3.22-.123-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23A11.5 11.5 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.12 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.807 5.625-5.48 5.92.43.372.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 21.796 24 17.298 24 12c0-6.63-5.37-12-12-12z"/></svg>
-              </a>
-            </div>
-          </div>
-          <h3>Senegal Electrification</h3>
-          <p>Data analysis of rural electrification patterns in Senegal — consumption, village coverage, device usage across regions.</p>
-          <div class="card-tags">
-            <span>Python</span><span>Pandas</span><span>SQL</span><span>Data Analysis</span>
+            <span>NestJS</span><span>TypeScript</span><span>REST API</span><span>Web Scraping</span>
           </div>
         </div>
 
@@ -241,10 +223,10 @@
   <!-- CONTACT -->
   <section id="contact">
     <div class="container contact-inner">
-      <h2 class="section-title">Let's talk</h2>
-      <p>Looking for a Data Scientist or Data Engineer? I'm open to new opportunities.</p>
+      <h2 class="section-title">Contact</h2>
+      <p>Looking for a Data Scientist or Statistician? I'm open to opportunities and collaborations.</p>
       <div class="contact-links">
-        <a href="mailto:mouhammadou.dia@email.com" class="btn btn-primary">Send an email</a>
+        <a href="mailto:mouhammadoudia194@gmail.com" class="btn btn-primary">mouhammadoudia194@gmail.com</a>
         <a href="https://linkedin.com/in/mouhammadou-dia-31b4612b6" target="_blank" class="btn btn-outline">LinkedIn</a>
         <a href="https://github.com/Mouhammadou-DIA" target="_blank" class="btn btn-outline">GitHub</a>
       </div>
@@ -252,7 +234,7 @@
   </section>
 
   <footer>
-    <p>Built by Mouhammadou DIA · <a href="https://github.com/Mouhammadou-DIA/Mouhammadou-DIA.github.io">Source</a></p>
+    <p>Mouhammadou DIA · Dakar, Senegal · <a href="https://github.com/Mouhammadou-DIA/Mouhammadou-DIA.github.io">Source</a></p>
   </footer>
 
   <script src="script.js"></script>

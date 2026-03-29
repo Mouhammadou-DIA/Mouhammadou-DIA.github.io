@@ -1,9 +1,8 @@
-// Typewriter effect
 const roles = [
   "Data Scientist",
-  "Data Engineer",
+  "Statistical Analyst",
   "NLP Engineer",
-  "ML Engineer",
+  "Data Engineer",
 ];
 
 let roleIndex = 0;
@@ -21,33 +20,30 @@ function type() {
       setTimeout(type, 400);
       return;
     }
-    setTimeout(type, 50);
+    setTimeout(type, 45);
   } else {
     typedEl.textContent = current.substring(0, charIndex++);
     if (charIndex > current.length) {
       deleting = true;
-      setTimeout(type, 1800);
+      setTimeout(type, 2000);
       return;
     }
-    setTimeout(type, 80);
+    setTimeout(type, 75);
   }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  setTimeout(type, 600);
+  setTimeout(type, 500);
 
-  // Fade-in on scroll
   const observer = new IntersectionObserver(
     (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add("visible")),
-    { threshold: 0.12 }
+    { threshold: 0.1 }
   );
 
-  document.querySelectorAll(".card, .skill-group, .stat, .about-text, .about-stats").forEach((el) => {
-    el.classList.add("fade-in");
-    observer.observe(el);
-  });
+  document
+    .querySelectorAll(".card, .skill-group, .stat, .timeline-item, .about-text, .about-stats")
+    .forEach((el) => { el.classList.add("fade-in"); observer.observe(el); });
 
-  // Active nav link on scroll
   const sections = document.querySelectorAll("section[id]");
   const navLinks = document.querySelectorAll("nav ul a");
 
@@ -57,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (window.scrollY >= sec.offsetTop - 120) current = sec.id;
     });
     navLinks.forEach((a) => {
-      a.style.color = a.getAttribute("href") === `#${current}` ? "var(--text)" : "";
+      a.style.color = a.getAttribute("href") === `#${current}` ? "var(--accent)" : "";
     });
   });
 });
