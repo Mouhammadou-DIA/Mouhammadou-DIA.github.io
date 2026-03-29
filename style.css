@@ -360,6 +360,21 @@ section:nth-child(even) { background: var(--bg2); }
 
 .card p { color: var(--muted); font-size: .875rem; flex: 1; }
 
+.private-badge {
+  font-size: .65rem;
+  font-weight: 600;
+  font-family: var(--mono);
+  background: #fff3cd;
+  color: #92680a;
+  border: 1px solid #f0c040;
+  border-radius: 4px;
+  padding: .1rem .45rem;
+  vertical-align: middle;
+  margin-left: .4rem;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+
 .card-tags { display: flex; flex-wrap: wrap; gap: .4rem; }
 .card-tags span {
   background: var(--accent-light);
